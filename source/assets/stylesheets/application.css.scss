@@ -1,3 +1,8 @@
+html, body {
+  position: fixed;
+  overflow: hidden;
+}
+
 body {
   background: #f3cc8f no-repeat center center fixed; 
   background-size: cover;
