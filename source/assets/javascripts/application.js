@@ -3,13 +3,14 @@
 function setBackgroundImage() {
   var filename = filenames[Math.floor(Math.random()*filenames.length)];
   var imageUrl = "http://www.oxforddancecamp.info/uploads/1/0/0/4/10043810/" + filename + "_orig.jpg"
-  document.body.style.backgroundImage = "url('" + imageUrl + "')";
+  var containerElement = document.getElementById("container");
+  containerElement.style.backgroundImage = "url('" + imageUrl + "')";
 }
 
 var phrase = phrases[Math.floor(Math.random()*phrases.length)];
 
 function startCountdown() {
-  var container = document.getElementById("container");
+  var contentElement = document.getElementById("center");
   var countDownDate = new Date("Aug 3, 2019 00:00:00").getTime();
 
   var timer = setInterval(function() {
@@ -27,15 +28,15 @@ function startCountdown() {
 
     if (delta < 0) {
       clearInterval(timer);
-      container.innerHTML = "YES!!!!!<br />👯‍♀️✨🎊🎉🕺💃";
+      contentElement.innerHTML = "YES!!!!!<br />👯‍♀️✨🎊🎉🕺💃";
       return;
     }
 
-    container.innerHTML = phrase + "<br />🏳️‍🌈☀️🏕💚<br />";
+    contentElement.innerHTML = phrase + "<br />🏳️‍🌈☀️🏕💚<br />";
 
     for (var i = 0; i < values.length; i++) {
       if (values[i] > 0) {
-        container.innerHTML += values[i] + units[i] + " ";
+        contentElement.innerHTML += values[i] + units[i] + " ";
       }
     }
   }, 1000);
