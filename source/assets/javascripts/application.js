@@ -11,7 +11,7 @@ var phrase = phrases[Math.floor(Math.random()*phrases.length)];
 
 function startCountdown() {
   var contentElement = document.getElementById("center");
-  var countDownDate = new Date("Aug 3, 2019 00:00:00").getTime();
+  var countDownDate = new Date("Aug 2, 2019 12:00:00").getTime();
 
   var timer = setInterval(function() {
     var now = new Date().getTime();
@@ -42,7 +42,7 @@ function startCountdown() {
   }, 1000);
 }
 
-window.onload = function() {
+document.addEventListener('DOMContentLoaded', function() { 
   setBackgroundImage()
   startCountdown()
-};
+}, false);
