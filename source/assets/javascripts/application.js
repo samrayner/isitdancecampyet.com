@@ -11,7 +11,7 @@ var phrase = phrases[Math.floor(Math.random()*phrases.length)];
 
 function startCountdown() {
   var contentElement = document.getElementById("center");
-  var countDownDate = new Date("Aug 2, 2019 12:00:00").getTime();
+  var countDownDate = new Date("Aug 7, 2020 12:00:00").getTime();
 
   var timer = setInterval(function() {
     var now = new Date().getTime();
