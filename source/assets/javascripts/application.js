@@ -8,20 +8,29 @@ function setBackgroundImage() {
 }
 
 var phrase = phrases[Math.floor(Math.random()*phrases.length)];
+var offsetDate = new Date();
+offsetDate.setDate(offsetDate.getDate() - 9);
+var date = dates.find(function(d) { return d > offsetDate; });
+
+var oneSecond = 1000;
+var oneMinute = oneSecond * 60;
+var oneHour = oneMinute * 60;
+var oneDay = oneHour * 24;
+var oneWeek = oneDay * 7;
 
 function startCountdown() {
   var contentElement = document.getElementById("center");
-  var countDownDate = new Date("Aug 7, 2020 12:00:00").getTime();
+  var countDownTime = date.getTime();
 
   var timer = setInterval(function() {
     var now = new Date().getTime();
-    var delta = countDownDate - now;
+    var delta = countDownTime - now;
 
-    var weeks = Math.floor(delta / (1000 * 60 * 60 * 24 * 7));
-    var days = Math.floor(delta % (1000 * 60 * 60 * 24 * 7) / (1000 * 60 * 60 * 24));
-    var hours = Math.floor((delta % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var minutes = Math.floor((delta % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((delta % (1000 * 60)) / 1000);
+    var weeks = Math.floor(delta / oneWeek);
+    var days = Math.floor(delta % oneWeek / oneDay);
+    var hours = Math.floor((delta % oneDay) / oneHour);
+    var minutes = Math.floor((delta % oneHour) / oneMinute);
+    var seconds = Math.floor((delta % oneMinute) / oneSecond);
 
     var values = [weeks, days, hours, minutes, seconds];
     var units = ["w", "d", "h", "m", "s"];
